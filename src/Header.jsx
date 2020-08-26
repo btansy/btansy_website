@@ -12,7 +12,7 @@ class Header extends Component{
         <div className="Header-Item"> Resume </div>
         <div className="Header-Item"> Projects </div>
         <div className="Header-Item" onClick={()=>{this.props.openNewPage('Form')}}> Contact </div>
-        <div className="Header-Item"> Log In </div>
+        <div className="Header-Item"> LogIn </div>
       </div>
     );
   }

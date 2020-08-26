@@ -7,11 +7,10 @@ class Form extends React.Component {
       this.state = {
         userName: '',
         userEmail: '',
-        message: 'Leave a message for Brian.'
+        message: ''
       };
   
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
     }
   
     handleChange(event) {
@@ -25,11 +24,19 @@ class Form extends React.Component {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Essay:
-            <textarea value={this.state.message} onChange={this.handleChange} />
-          </label>
+        <form className='Form' onSubmit={this.handleSubmit}>
+            <label>
+            Name: 
+            </label>
+            <input type='text'></input>   
+            <label>
+            eMail:
+            </label> 
+            <input type='email'></input>
+            <label>
+            Message:   
+            </label>
+            <textarea rows="20" cols="33" value={this.state.message} onChange={this.handleChange} />
           <input type="submit" value="Submit" />
         </form>
       );
