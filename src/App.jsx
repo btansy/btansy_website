@@ -7,10 +7,10 @@ class App extends Component{
 
   constructor(props) {
     super(props);
-    this.openNewPage = this.openNewPage.bind(this);
     this.state = {
       openPage: 'Home',
     };
+    this.openNewPage = this.openNewPage.bind(this);
   }
 
   openNewPage(pageName) {
@@ -19,11 +19,11 @@ class App extends Component{
 
   render(){
     let page;
-    if (this.openPage === 'Home') {
-      page = <h1>Welcome!</h1>
+    if (this.state.openPage === 'Home') {
+      page = <h1>Welcome!</h1>;
     }
-    if (this.openPage === 'Form') {
-      page = <Form />
+    if (this.state.openPage === 'Form') {
+      page = <Form />;
     }
     return(
       <div className="App">
