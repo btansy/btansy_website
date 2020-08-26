@@ -10,17 +10,17 @@ class Form extends React.Component {
         message: ''
       };
   
-      this.handleChange = this.handleChange.bind(this);
+      this.handleInputChange = this.handleInputChange.bind(this);
     }
-  
-    handleChange(event) {
-      this.setState({message: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('An essay was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        this.setState({
+          [name]: value
+        });
+      }
   
     render() {
       return (
@@ -28,15 +28,27 @@ class Form extends React.Component {
             <label>
             Name: 
             </label>
-            <input type='text'></input>   
+            <input 
+              name="userName" 
+              type="text" 
+              value={this.state.userName}
+              onChange={this.handleInputChange}></input>   
             <label>
             eMail:
             </label> 
-            <input type='email'></input>
+            <input 
+              name="userEmail" 
+              type="email"
+              value={this.state.userEmail} 
+              onChange={this.handleInputChange}></input>
             <label>
             Message:   
             </label>
-            <textarea rows="20" cols="33" value={this.state.message} onChange={this.handleChange} />
+            <textarea 
+              rows="20" 
+              cols="33" 
+              value={this.state.message} 
+              onChange={this.handleInputChange} />
           <input type="submit" value="Submit" />
         </form>
       );
