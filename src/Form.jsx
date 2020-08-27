@@ -7,10 +7,11 @@ class Form extends React.Component {
       this.state = {
         userName: '',
         userEmail: '',
-        message: ''
+        message: 'Leave me a message!'
       };
   
       this.handleInputChange = this.handleInputChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInputChange(event) {
@@ -21,6 +22,11 @@ class Form extends React.Component {
           [name]: value
         });
       }
+
+    handleSubmit(event) {
+        console.log('An message was sent: ' + this.state.message);
+        event.preventDefault();
+    }      
   
     render() {
       return (
@@ -31,6 +37,7 @@ class Form extends React.Component {
             <input 
               name="userName" 
               type="text" 
+              size="34"
               value={this.state.userName}
               onChange={this.handleInputChange}></input>   
             <label>
@@ -39,6 +46,7 @@ class Form extends React.Component {
             <input 
               name="userEmail" 
               type="email"
+              size="34"
               value={this.state.userEmail} 
               onChange={this.handleInputChange}></input>
             <label>
@@ -46,7 +54,9 @@ class Form extends React.Component {
             </label>
             <textarea 
               rows="20" 
-              cols="33" 
+              cols="35" 
+              name='message'
+              placeholder=""
               value={this.state.message} 
               onChange={this.handleInputChange} />
           <input type="submit" value="Submit" />
