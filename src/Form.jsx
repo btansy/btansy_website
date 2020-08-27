@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "./App.css";
+const axios = require('axios');
+
 
 class Form extends React.Component {
     constructor(props) {
@@ -24,7 +26,17 @@ class Form extends React.Component {
       }
 
     handleSubmit(event) {
-        console.log('An message was sent: ' + this.state.message);
+        axios.post('/message', {
+            userName: this.state.userName,
+            userEmail: this.state.userEmail,
+            message: this.state.message
+          })
+          .then(function (response) {
+
+          })
+          .catch(function (error) {
+
+          });
         event.preventDefault();
     }      
   
